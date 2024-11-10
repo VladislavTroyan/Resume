@@ -1,38 +1,260 @@
-.App {
-  text-align: center;
+/* СТРАНИЦА*/
+body {
+  margin: 0;
+  background-color: #efefef;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.veri-big-container {
+  margin: 4% auto 0 auto;  /* верх право низ лево*/
+  width: 1032px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 35px;
+}
+@media (max-width: 1200px) {
+  .veri-big-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Два столбца */
+    grid-template-rows: auto 1fr;   /* Первая строка для блока сверху */
+    gap: 35px;
+    width: 690px;
+  }
+}
+@media (max-width: 768px) {
+  .veri-big-container {
+    display: block; /* Убираем сетку */
+    grid-template-columns: none; /* Сбрасываем количество столбцов */
+    grid-template-rows: none;    /* Сбрасываем количество строк */
+    gap: 0;                      /* Убираем разрыв */
+    max-width: 425px;                 /* Возвращаем ширину по умолчанию */
+  }
+}
+@media (max-width: 425px) {
+  .veri-big-container {
+    display: block;
+    margin: 0;
+    width: 100%;
+    min-width: 230px;
+  }
+}
+
+/*СТОЛБЦЫ*/
+.row-one {
+  flex: 1;
+}
+.row-two {
+  flex: 1;
+}
+.row-three {
+  flex: 1;
+}
+@media (max-width: 1200px) {
+  .row-one {
+    grid-column: 1 / -1; /* Растягивает блок на всю ширину сверху */
+    margin: 0 auto; /* Центрирует элемент по горизонтали */
+    display: flex;
+    gap: 35px;
+  }
+}
+@media (max-width: 768px) {
+  .row-one {
+    grid-column: auto; /* Вернётся к стандартной ширине */
+    margin: 0; /* Уберёт отступ */
+    display: block; /* Уберёт flex */
+    gap: 0; /* Установит разрыв в 0 */
+    margin-top: calc(10%);
+  }
+}
+@media (max-width: 425px) {
+  .row-one {
+    margin-top: calc(10%);
+  }
+}
+
+
+
+/*ФОТО, ИМЯ, ДОЛЖНОСТЬ*/
+.photo-name-speciality-container{
+  position: relative;
+}
+@media (max-width: 1200px) {
+  .photo-name-speciality-container {
+    flex: 1;
+  }
+}
+/* Фото*/
+.photo-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.photo-container img {
+  width: 60%;
+  max-width: 100%;
+  border-radius: 50%;
+  z-index: 2;
+}
+/* Контейнер с текстом*/
+.name-speciality-container{
+  margin-top: calc(-10%);
+  width: 100%;
+  background-color: #ff7948;
+  border-radius: 30px;
+  z-index: 1;
+  padding-top: 1px;
+}
+.name-container{
+  padding: calc(18%) calc(8%) 0 calc(8%);  /* верх право низ лево*/
+  text-align: center;
+  font-family: 'Fira Sans';
+  font-weight: 900;
+  font-size: 32px;
+}
+.speciality-container{
+  padding: calc(4%) calc(8%) calc(8%) calc(8%); 
+  text-align: center;
+  font-family: 'Clear Sans';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color:white;
+}
+/* Кнопка загрузки*/
+.download-resime {
+  width: 100%;
+  background-color: #ff7948;
+  border-radius: 30px;
+  margin-top: 35px;
+  padding: 25px;
+  text-align: center;
+  font-family: 'Clear Sans';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
   color: white;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+.download-resime:active {
+  background-color: #e66d3c; 
+}
+a, .download-resime {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
-.App-link {
-  color: #61dafb;
+
+/*ЛИЧНЫЕ ДАННЫЕ*/
+.basic-information{
+  margin-top: calc(10%);
+  padding: 0 calc(8%) 0 calc(8%);  /* верх право низ лево*/
+}
+@media (max-width: 1200px) {
+  .basic-information {
+    flex: 1;
+    margin-top: 0;
+    padding: 0;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.basic-title-info{
+  margin-bottom: 35px;
+}
+
+
+/*БОЛЬШИЕ КОНТЕЙНЕРЫ*/
+.top-container{
+  padding: 0 calc(7%) 0 calc(7%);  /* верх право низ лево*/
+  background-color: white;
+  border-radius: 30px;
+  margin-bottom: 35px;
+  margin-top: calc(50%);
+}
+@media (max-width: 1200px) {
+  .top-container{
+    margin-top: 0;
   }
-  to {
-    transform: rotate(360deg);
+}
+.last-container{
+  padding: 0 calc(7%) 0 calc(7%);  /* верх право низ лево*/
+  background-color: white;
+  border-radius: 30px;
+  margin-bottom: 35px;
+}
+@media (max-width: 1200px) {
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 425px) {
+  .top-container {
+    margin-top: calc(10%);
   }
+}
+
+
+/* НАВЫКИ*/
+.skills{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.skill {
+  padding: 5px;
+  background-color:#efefef;
+  border-radius: 10px;
+  line-height: 20px;
+}
+
+
+/*ТЕКСТА*/
+.orange-title1, .orange-title {
+  padding: calc(7%) 0 calc(7%) 0;  /* верх право низ лево*/
+  font-family: 'Fira Sans';
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 38px;
+  color: #ff7948;
+}
+@media (max-width: 1200px) {
+  .orange-title1{
+    padding: calc(7%) calc(8%) calc(7%) calc(8%);  /* верх право низ лево*/
+  }
+}
+@media (max-width: 1200px) {
+  .basic-title-info {
+    padding: 0 calc(8%) 0 calc(8%);  /* верх право низ лево*/
+  }
+}
+.basic-title{
+  font-family: 'Fira Sans';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: black;
+}
+.basic-info{
+  font-family: 'Clear Sans';
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 26px;
+  color: #5b5e66;
+}
+.basic-info a {
+  color: inherit;
+}
+.basic-info-no-one-row{
+  font-family: 'Clear Sans';
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 26px;
+  color: #5b5e66;
+  padding-bottom: calc(7%);
+}
+.black-title{
+  font-family: 'Fira Sans';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  padding-bottom: calc(4%);
+}
+.basic-info-no-one-row ul {
+  margin: 0;
 }
